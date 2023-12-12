@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion History</title>
+</head>
+<body>
+    <h1>Conversion History</h1>
+    <p>Welcome, {{ session['username'] }}! (<a href="/logout">Logout</a>)</p>
+    <table>
+        <thead>
+            <tr>
+                <th>From Currency</th>
+                <th>To Currency</th>
+                <th>Amount</th>
+                <th>Converted Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in user_history %}
+            <tr>
+                <td>{{ entry.from_currency }}</td>
+                <td>{{ entry.to_currency }}</td>
+                <td>{{ entry.amount }}</td>
+                <td>{{ entry.converted_amount }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

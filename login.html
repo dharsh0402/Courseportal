@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftSwap</title>
+    <style>
+        body {
+            font-family: Georgia;
+            background-color: #d1ffd1;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-family: Georgia;
+            font-size: 4em;
+            color: #000; /* Black */
+            margin-bottom: 100px;
+        }
+
+        h2 {
+            font-family: Georgia;
+            font-size: 3em;
+            text-align: center;
+            color: #fff; /* Bright White */
+            margin-bottom: 40px;
+        }
+
+        form {
+            background-color: #000; /* Black */
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 10 0 10px #fff;
+            padding: 40px;
+            width: 300px;
+            margin: auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 20px;
+            color: #fff; /* Bright White */
+        }
+
+        input {
+            width: calc(100% - 40px);
+            padding: 5px;
+            margin-bottom: 16px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            color: #000; /* Black */
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff; 
+            padding: 10px 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 95%;
+        }
+
+            button:hover {
+                background-color: #71f0eb;
+            }
+
+        p {
+            text-align: center;
+            margin-top: 10px;
+            color: #fff; 
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+    </style>
+</head>
+<body>
+    <h1>SwiftSwap</h1>
+    <form method="post" action="/login">
+        <h2>Login</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Login</button>
+
+        <p>Don't have an account? <a href="/signup">Signup here</a>.</p>
+    </form>
+</body>
+</html>

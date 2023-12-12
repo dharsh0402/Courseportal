@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <style>
+        body {
+            font-family: Georgia;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            flex-direction: column; 
+        }
+
+        h2 {
+            font-size: 40px; 
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            margin: auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input, select {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+            button:hover {
+                background-color: #21d1b1;
+            }
+
+        p {
+            text-align: center;
+            margin-top: 30px;
+            color: 00008B;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+        .converted-amount {
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h2>Swiftswap Currency Converter</h2>
+    {% if 'username' in session %}
+    <p>Welcome, {{ session['username'] }}! (<a href="/logout">Logout</a>)</p>
+    {% endif %}
+    {% if 'username' in session %}
+    <a href="{{ url_for('conversion_history') }}"><button>History</button></a>
+    {% endif %}
+    <form method="post" action="/convert">
+        <label for="amount">Amount:</label>
+        <input type="number" name="amount" step="0.01" required>
+
+        <label for="from_currency">From Currency:</label>
+        <select name="from_currency" required>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="INR">INR</option>
+            <option value="CAD">CAD</option>
+            <option value="CHF">CHF</option>
+            <option value="CNY">CNY</option>
+            <option value="SEK">SEK</option>
+            <option value="NZD">NZD</option>
+        </select>
+
+        <label for="to_currency">To Currency:</label>
+        <select name="to_currency" required>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="INR">INR</option>
+            <option value="CAD">CAD</option>
+            <option value="CHF">CHF</option>
+            <option value="CNY">CNY</option>
+            <option value="SEK">SEK</option>
+            <option value="NZD">NZD</option>
+        </select>
+
+        <button type="submit">Convert</button>
+
+        {% if result %}
+        <p class="converted-amount">Conversion Value: {{ result }}</p>
+        {% endif %}
+    </form>
+
+    {% if 'username' not in session %}
+    <p>Please <a href="/login">login</a> to access the converter.</p>
+    {% endif %}
+</body>
+</html>
